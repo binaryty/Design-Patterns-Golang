@@ -2,16 +2,16 @@
 Абстрактный класс Target содержит три абстрактных метода: GetA, GetB и Request
 (не имеют параметров, возвращают значение целого типа).
 
-Класс ConcreteTarget является потомком класса Target; он содержит поля a и b целого типа,
+Класс ConcreteTarget является потомком класса Target; он содержит поля A и B целого типа,
 которые инициализируются в конструкторе, имеющем одноименные параметры.
 
-Методы GetA и GetB класса ConcreteTarget возвращают значения полей a и b соответственно,
+Методы GetA и GetB класса ConcreteTarget возвращают значения полей A и B соответственно,
 а метод Request возвращает сумму этих полей.
 
-Класс Adaptee содержит два целочисленных поля a и b, конструктор с параметрами a и b,
+Класс Adaptee содержит два целочисленных поля A и B, конструктор с параметрами A и B,
 задающий значения этих полей, метод GetAll, возвращающий текущие значения полей (либо с помощью выходных параметров,
 либо с помощью возвращаемого значения — массива или кортежа),
-и метод SpecificRequest без параметров, возвращающий произведение полей a и b.
+и метод SpecificRequest без параметров, возвращающий произведение полей A и B.
 
 Реализовать класс Adapter, адаптирующий класс Adaptee к интерфейсу класса Target.
 Класс должен быть адаптером объекта: он порождается от класса Target
@@ -21,7 +21,7 @@
 Метод Request класса Adapter должен вызывать метод SpecificRequest объекта ad,
 а методы GetA и GetB — возвращать значения полей a и b объекта ad, используя его метод GetAll
 */
-package main
+package adapter
 
 // Target интерфейс содержит три абстрактных метода: GetA, GetB и Request (не имеют параметров, возвращают значение целого типа).
 type Target interface {
@@ -30,57 +30,57 @@ type Target interface {
 	Request() int
 }
 
-// ConcreteTarget является реализацией интефейса Target, он содержит поля a и b целого типа.
+// ConcreteTarget является реализацией интефейса Target, он содержит поля A и B целого типа.
 type ConcreteTarget struct {
-	a int
-	b int
+	A int
+	B int
 }
 
 // NewConcreteTarget конструктор ConcreteTarget с параметрами a и b, задающий значения этих полей.
 func NewConcreteTarget(a int, b int) ConcreteTarget {
 	return ConcreteTarget{
-		a: a,
-		b: b,
+		A: a,
+		B: b,
 	}
 }
 
-// GetA возвращает значение поля a.
+// GetA возвращает значение поля A.
 func (c ConcreteTarget) GetA() int {
-	return c.a
+	return c.A
 }
 
-// GetB возвращает значение поля b.
+// GetB возвращает значение поля B.
 func (c ConcreteTarget) GetB() int {
-	return c.b
+	return c.B
 }
 
-// Request возвращает сумму полей a и b.
+// Request возвращает сумму полей A и B.
 func (c ConcreteTarget) Request() int {
-	return c.a + c.b
+	return c.A + c.B
 }
 
-// Adaptee содержит два целочисленных поля a и b.
+// Adaptee содержит два целочисленных поля A и B.
 type Adaptee struct {
-	a int
-	b int
+	A int
+	B int
 }
 
 // NewAdaptee конструктор Adaptee с параметрами a и b, задающий значения этих полей.
 func NewAdaptee(a int, b int) Adaptee {
 	return Adaptee{
-		a: a,
-		b: b,
+		A: a,
+		B: b,
 	}
 }
 
 // GetAll возвращающий текущие значения полей c помощью слайса.
 func (a Adaptee) GetAll() []int {
-	return []int{a.a, a.b}
+	return []int{a.A, a.B}
 }
 
-// SpecificRequest без параметров, возвращающий произведение полей a и b.
+// SpecificRequest без параметров, возвращающий произведение полей A и B.
 func (a Adaptee) SpecificRequest() int {
-	return a.a * a.b
+	return a.A * a.B
 }
 
 // Adapter адаптирующий Adaptee к интерфейсу класса Target.

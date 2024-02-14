@@ -10,7 +10,10 @@
 */
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"github.com/binaryty/Design-Design-Patterns-Golang/Structural/Adapter/adapter"
+)
 
 const N = 3
 
@@ -38,19 +41,19 @@ func main() {
 		},
 	}
 
-	targets := make([]Target, N)
+	targets := make([]adapter.Target, N)
 
 	for i := 0; i < N; i++ {
 		t := triple[i]
 		if t.c == '+' {
-			targets[i] = &ConcreteTarget{
-				a: t.a,
-				b: t.b,
+			targets[i] = &adapter.ConcreteTarget{
+				A: t.a,
+				B: t.b,
 			}
 		} else if t.c == '*' {
-			targets[i] = Adapter{&Adaptee{
-				a: t.a,
-				b: t.b,
+			targets[i] = adapter.Adapter{&adapter.Adaptee{
+				A: t.a,
+				B: t.b,
 			}}
 		}
 	}
