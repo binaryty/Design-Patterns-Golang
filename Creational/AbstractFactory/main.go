@@ -23,9 +23,7 @@ import (
 что и составляет суть паттерна «Абстрактная фабрика».
 */
 func main() {
-	const N = 6
-
-	var set [N]string = [N]string{"B Accept", "L Edit1", "B Ok", "L Name", "B Yes", "L Address"}
+	set := []string{"B Accept", "L Edit1", "B Ok", "L Name", "B Yes", "L Address"}
 
 	f1 := &factory.Factory2{}
 	Client1 := pkg.NewClient(f1)
