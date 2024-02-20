@@ -2,12 +2,13 @@ package main
 
 import (
 	"fmt"
-	"github.com/binaryty/Design-Design-Patterns-Golang/Structural/Bridge/pkg/types"
+	"github.com/binaryty/Design-Design-Patterns-Golang/Structural/Bridge/scanners/pkg/types"
+	"github.com/binaryty/Design-Design-Patterns-Golang/Structural/Bridge/shapes"
 )
 
 var (
-	hpScanner    = types.HP{}
-	epsonScanner = types.Epson{}
+	hpScanner    = types.HPScanner{}
+	epsonScanner = types.EpsonScanner{}
 
 	winPC   = types.WinPC{}
 	linuxPC = types.LinuxPC{}
@@ -26,5 +27,5 @@ func main() {
 
 	fmt.Println()
 
-	RenderShapes()
+	shapes.RenderShapes()
 }
