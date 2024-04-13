@@ -8,9 +8,9 @@ import (
 )
 
 const (
-	GreenDelay  = "1 2 3 4 5 6 7 8 9 10 11 12 13 14 15"
-	RedDelay    = "1 2 3 4 5 6 7 8 9 10"
-	YellowDelay = "1 2 3"
+	GreenDelay  = "1 2 3 4 5 6 7 8 9 10"
+	RedDelay    = "1 2 3 4 5"
+	YellowDelay = "1 2"
 )
 
 var (
@@ -19,6 +19,7 @@ var (
 
 type TrafficLight struct {
 	currentLight Light
+	prevLight    Light
 	greenLight   Light
 	yellowLight  Light
 	redLight     Light
@@ -40,6 +41,7 @@ func NewTrafficLight() *TrafficLight {
 	}
 
 	tl.setLight(greenLight)
+	tl.prevLight = greenLight
 	tl.greenLight = greenLight
 	tl.yellowLight = yellowLight
 	tl.redLight = redLight

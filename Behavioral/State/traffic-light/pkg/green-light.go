@@ -14,7 +14,8 @@ func (g GreenLight) GreenLight() error {
 	Countdown(GreenDelay)
 
 	fmt.Println()
-	g.tl.setLight(g.tl.redLight)
+	g.tl.setLight(g.tl.yellowLight)
+	g.tl.prevLight = g.tl.greenLight
 
 	return nil
 }

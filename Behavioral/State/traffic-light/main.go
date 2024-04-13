@@ -13,6 +13,10 @@ func main() {
 			log.Fatalf(err.Error())
 		}
 
+		if err := tl.YellowLight(); err != nil {
+			log.Fatalf(err.Error())
+		}
+
 		if err := tl.RedLight(); err != nil {
 			log.Fatalf(err.Error())
 		}

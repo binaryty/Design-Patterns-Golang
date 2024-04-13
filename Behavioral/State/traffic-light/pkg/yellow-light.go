@@ -19,7 +19,12 @@ func (l *YellowLight) YellowLight() error {
 
 	fmt.Println()
 
-	l.tl.setLight(l.tl.greenLight)
+	switch {
+	case l.tl.prevLight == l.tl.greenLight:
+		l.tl.setLight(l.tl.redLight)
+	case l.tl.prevLight == l.tl.redLight:
+		l.tl.setLight(l.tl.greenLight)
+	}
 
 	return nil
 }

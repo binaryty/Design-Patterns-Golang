@@ -24,6 +24,7 @@ func (r RedLight) RedLight() error {
 	fmt.Println()
 
 	r.tl.setLight(r.tl.yellowLight)
+	r.tl.prevLight = r.tl.redLight
 
 	return nil
 }
